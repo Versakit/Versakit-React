@@ -1,4 +1,3 @@
-import React from "react";
 import { buttonVariants } from "./index.variants";
 import type { ButtonProps } from "./types";
 

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "@versakit/ui";
+import "@versakit/ui/style.css";
 
 // 更多关于如何配置 stories 的信息: https://storybook.js.org/docs/writing-stories
 const meta = {
@@ -12,7 +13,16 @@ const meta = {
   argTypes: {
     variant: {
       control: { type: "select" },
-      options: ["default", "outline", "ghost"],
+      options: [
+        "default",
+        "outline",
+        "ghost",
+        "primary",
+        "secondary",
+        "success",
+        "warning",
+        "danger",
+      ],
       description: "按钮的样式变体",
     },
     size: {

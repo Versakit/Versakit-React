@@ -3,7 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "./index.ts",
+  "main": "./dist/versakit-ui.umd.cjs",
+  "module": "./dist/versakit-ui.js",
+  "exports": {
+    ".": {
+      "import": "./dist/versakit-ui.js",
+      "require": "./dist/versakit-ui.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
