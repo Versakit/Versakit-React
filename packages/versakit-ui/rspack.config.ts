@@ -1,67 +1,66 @@
-import { RsdoctorRspackPlugin } from "@rsdoctor/rspack-plugin";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import type { Configuration } from "@rspack/core";
+import { defineConfig } from "@rspack/cli";
+import { rspack } from "@rspack/core";
+import { ReactRefreshRspackPlugin } from "@rspack/plugin-react-refresh";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const isDev = process.env.NODE_ENV === "development";
 
-const config: Configuration = {
-  context: __dirname,
-  entry: "./index.ts",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "index.js",
-    library: {
-      type: "module",
-    },
-  },
-  experiments: {
-    outputModule: true,
+// Target browsers, see: https://github.com/browserslist/browserslist
+const targets = ["last 2 versions", "> 0.2%", "not dead", "Firefox ESR"];
+
+export default defineConfig({
+  entry: {
+    main: "./src/main.tsx",
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+    extensions: ["...", ".ts", ".tsx", ".jsx"],
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx|ts|tsx)$/,
-        use: {
-          loader: "builtin:swc-loader",
-          options: {
-            jsc: {
-              parser: {
-                syntax: "typescript",
-                tsx: true,
-              },
-              transform: {
-                react: {
-                  runtime: "automatic",
-                },
-              },
-            },
-          },
-        },
+        test: /\.svg$/,
+        type: "asset",
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"],
-        type: "css",
+        test: /\.(jsx?|tsx?)$/,
+        use: [
+          {
+            loader: "builtin:swc-loader",
+            options: {
+              jsc: {
+                parser: {
+                  syntax: "typescript",
+                  tsx: true,
+                },
+                transform: {
+                  react: {
+                    runtime: "automatic",
+                    development: isDev,
+                    refresh: isDev,
+                  },
+                },
+              },
+              env: { targets },
+            },
+          },
+        ],
       },
     ],
   },
   plugins: [
-    process.env.NODE_ENV === "production"
-      ? null
-      : new RsdoctorRspackPlugin({
-          output: {
-            reportDir: "./node_modules/.rsdoctor",
-          },
-        }),
+    new rspack.HtmlRspackPlugin({
+      template: "./index.html",
+    }),
+    isDev ? new ReactRefreshRspackPlugin() : null,
   ].filter(Boolean),
-  externals: {
-    react: "react",
-    "react-dom": "react-dom",
+  optimization: {
+    minimizer: [
+      new rspack.SwcJsMinimizerRspackPlugin(),
+      new rspack.LightningCssMinimizerRspackPlugin({
+        minimizerOptions: { targets },
+      }),
+    ],
   },
-};
-
-export default config;
+  experiments: {
+    css: true,
+  },
+});
