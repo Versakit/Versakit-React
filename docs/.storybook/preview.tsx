@@ -1,9 +1,5 @@
 import { withThemeByClassName } from "@storybook/addon-themes";
 import type { Preview } from "@storybook/react";
-import React from "react";
-
-// 导入 versakit-ui 的样式
-import "../../packages/versakit-ui/dist/style.css";
 
 const preview: Preview = {
   parameters: {
@@ -31,12 +27,7 @@ const preview: Preview = {
       },
       defaultTheme: "light",
     }),
-    (Story) =>
-      React.createElement(
-        "div",
-        { className: "p-4" },
-        React.createElement(Story, null)
-      ),
+    (Story) => <div className="p-4">{Story()}</div>,
   ],
 };
 

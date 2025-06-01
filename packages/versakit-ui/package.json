@@ -1,5 +1,5 @@
 {
-  "name": "versakit-ui",
+  "name": "@versakit/ui",
   "private": true,
   "version": "1.0.0",
   "scripts": {
@@ -10,8 +10,12 @@
     "preview": "rspack preview"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.8",
+    "postcss": "^8.5.4",
+    "postcss-loader": "^8.1.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.8"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

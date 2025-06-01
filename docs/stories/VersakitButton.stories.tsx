@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "@versakit/ui";
-import "@versakit/ui/style.css";
+import "../../packages/versakit-ui/dist/main.css";
 
 // 更多关于如何配置 stories 的信息: https://storybook.js.org/docs/writing-stories
 const meta = {
@@ -21,7 +21,7 @@ const meta = {
         "secondary",
         "success",
         "warning",
-        "danger",
+        "error",
       ],
       description: "按钮的样式变体",
     },

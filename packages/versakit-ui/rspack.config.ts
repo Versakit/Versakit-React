@@ -9,13 +9,18 @@ const targets = ["last 2 versions", "> 0.2%", "not dead", "Firefox ESR"];
 
 export default defineConfig({
   entry: {
-    main: "./src/main.tsx",
+    main: "./index.ts",
   },
   resolve: {
     extensions: ["...", ".ts", ".tsx", ".jsx"],
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: ["postcss-loader"],
+        type: "css",
+      },
       {
         test: /\.svg$/,
         type: "asset",
@@ -46,12 +51,7 @@ export default defineConfig({
       },
     ],
   },
-  plugins: [
-    new rspack.HtmlRspackPlugin({
-      template: "./index.html",
-    }),
-    isDev ? new ReactRefreshRspackPlugin() : null,
-  ].filter(Boolean),
+  plugins: [isDev ? new ReactRefreshRspackPlugin() : null].filter(Boolean),
   optimization: {
     minimizer: [
       new rspack.SwcJsMinimizerRspackPlugin(),
