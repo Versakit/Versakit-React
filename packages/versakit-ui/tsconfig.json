@@ -5,13 +5,16 @@
     "module": "ESNext",
     "jsx": "react-jsx",
     "strict": true,
-    "noEmit": true,
+    "declaration": true,
+    "declarationDir": "./dist",
+    "emitDeclarationOnly": true,
     "skipLibCheck": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
     "moduleResolution": "bundler",
     "useDefineForClassFields": true,
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": false,
+    "outDir": "./dist"
   },
   "include": ["components", "styles", "index.ts", "*.tsx"],
   "ts-node": {

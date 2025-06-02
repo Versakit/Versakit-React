@@ -17,6 +17,7 @@
     "ui:lint": "biome check packages/versakit-ui",
     "ui:format": "biome format --write packages/versakit-ui",
     "ui:build": "pnpm --filter @versakit/react build",
+    "ui:docker": "pnpm --filter @versakit/react docker",
     "docs:dev": "pnpm --filter docs dev",
     "docs:build": "pnpm --filter docs build",
     "docs:preview": "pnpm --filter docs preview",

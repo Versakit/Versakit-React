@@ -1,0 +1,52 @@
+{
+  "client": {
+    "enableRoutes": [
+      "Overall",
+      "Compile.WebpackLoaders",
+      "Compile.WebpackPlugins",
+      "Bundle.ModuleGraph",
+      "Bundle.BundleSize"
+    ]
+  },
+  "data": {
+    "hash": "1dc41938e300a3ed38603eeb8b97d03f",
+    "root": "D:\\我的\\我的开源项目\\Versakit-react\\packages\\versakit-ui",
+    "envinfo": [
+      "D:\\我的\\我的开源项目\\Versakit-react\\packages\\versakit-ui\\.rsdoctor\\.rsdoctor\\envinfo\\0"
+    ],
+    "pid": 5964,
+    "errors": [
+      "D:\\我的\\我的开源项目\\Versakit-react\\packages\\versakit-ui\\.rsdoctor\\.rsdoctor\\errors\\0"
+    ],
+    "configs": [
+      "D:\\我的\\我的开源项目\\Versakit-react\\packages\\versakit-ui\\.rsdoctor\\.rsdoctor\\configs\\0"
+    ],
+    "summary": [
+      "D:\\我的\\我的开源项目\\Versakit-react\\packages\\versakit-ui\\.rsdoctor\\.rsdoctor\\summary\\0"
+    ],
+    "resolver": [
+      "D:\\我的\\我的开源项目\\Versakit-react\\packages\\versakit-ui\\.rsdoctor\\.rsdoctor\\resolver\\0"
+    ],
+    "loader": [
+      "D:\\我的\\我的开源项目\\Versakit-react\\packages\\versakit-ui\\.rsdoctor\\.rsdoctor\\loader\\0"
+    ],
+    "moduleGraph": [
+      "D:\\我的\\我的开源项目\\Versakit-react\\packages\\versakit-ui\\.rsdoctor\\.rsdoctor\\moduleGraph\\0"
+    ],
+    "chunkGraph": [
+      "D:\\我的\\我的开源项目\\Versakit-react\\packages\\versakit-ui\\.rsdoctor\\.rsdoctor\\chunkGraph\\0"
+    ],
+    "moduleCodeMap": [
+      "D:\\我的\\我的开源项目\\Versakit-react\\packages\\versakit-ui\\.rsdoctor\\.rsdoctor\\moduleCodeMap\\0"
+    ],
+    "plugin": [
+      "D:\\我的\\我的开源项目\\Versakit-react\\packages\\versakit-ui\\.rsdoctor\\.rsdoctor\\plugin\\0"
+    ],
+    "packageGraph": [
+      "D:\\我的\\我的开源项目\\Versakit-react\\packages\\versakit-ui\\.rsdoctor\\.rsdoctor\\packageGraph\\0"
+    ],
+    "otherReports": [
+      "D:\\我的\\我的开源项目\\Versakit-react\\packages\\versakit-ui\\.rsdoctor\\.rsdoctor\\otherReports\\0"
+    ]
+  }
+}
