@@ -16,7 +16,7 @@
     "lint:fix": "biome check --apply .",
     "ui:lint": "biome check packages/versakit-ui",
     "ui:format": "biome format --write packages/versakit-ui",
-    "ui:build": "pnpm --filter @versakit/ui build",
+    "ui:build": "pnpm --filter @versakit/react build",
     "docs:dev": "pnpm --filter docs dev",
     "docs:build": "pnpm --filter docs build",
     "docs:preview": "pnpm --filter docs preview",
@@ -36,7 +36,6 @@
     "lefthook": "^1.11.13",
     "npm-run-all2": "^7.0.1",
     "rimraf": "^6.0.1",
-    "tailwind-variants": "^1.0.0",
     "typescript": "~5.6.3"
   }
 }
