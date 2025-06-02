@@ -38,6 +38,14 @@ const meta = {
       control: "text",
       description: "自定义 CSS 类名",
     },
+    unstyled: {
+      control: "boolean",
+      description: "是否移除默认样式",
+    },
+    pt: {
+      control: "object",
+      description: "传递给组件的自定义属性",
+    },
     onClick: { action: "clicked" },
   },
 } satisfies Meta<typeof Button>;
@@ -91,5 +99,36 @@ export const Large: Story = {
     variant: "default",
     size: "lg",
     children: "大按钮",
+  },
+};
+
+export const Unstyled: Story = {
+  args: {
+    unstyled: true,
+    className: "bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600",
+    children: "无样式按钮",
+  },
+};
+
+export const WithPassThrough: Story = {
+  args: {
+    variant: "primary",
+    size: "md",
+    children: "带自定义属性的按钮",
+    pt: {
+      "data-testid": "custom-button",
+      "data-custom": "custom-value",
+    },
+  },
+};
+
+export const AccessibilityExample: Story = {
+  args: {
+    variant: "primary",
+    size: "md",
+    children: "无障碍按钮",
+    "aria-label": "无障碍示例按钮",
+    "aria-haspopup": true,
+    "aria-expanded": false,
   },
 };

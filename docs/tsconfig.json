@@ -27,7 +27,6 @@
     ".storybook/**/*",
     "../packages/versakit-ui/components/**/*.stories.tsx"
   ],
-  "references": [{ "path": "../packages/versakit-ui/tsconfig.json" }],
   "composite": true,
   "emitDeclarationOnly": false
 }
