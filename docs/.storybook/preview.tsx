@@ -1,5 +1,5 @@
 import { withThemeByClassName } from "@storybook/addon-themes";
-import type { Preview } from "@storybook/react";
+import type { Preview, StoryFn } from "@storybook/react";
 
 const preview: Preview = {
   parameters: {
@@ -27,7 +27,7 @@ const preview: Preview = {
       },
       defaultTheme: "light",
     }),
-    (Story) => <div className="p-4">{Story()}</div>,
+    (Story: StoryFn) => <div className="p-4">{Story()}</div>,
   ],
 };
 

@@ -20,7 +20,7 @@ const meta = {
         "primary",
         "secondary",
         "success",
-        "warning",
+        "warn",
         "error",
       ],
       description: "按钮的样式变体",
