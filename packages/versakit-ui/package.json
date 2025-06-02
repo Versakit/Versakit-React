@@ -1,7 +1,28 @@
 {
-  "name": "@versakit/ui",
-  "private": true,
+  "name": "@versakit/react",
+  "private": false,
   "version": "1.0.0",
+  "type": "module",
+  "author": "Jannik",
+  "license": "MIT",
+  "description": "VersaKit React",
+  "keywords": [
+    "versakit",
+    "react",
+    "ui",
+    "components"
+  ],
+  "main": "./dist/main.js",
+  "style": "./dist/main.css",
+  "module": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "rspack build",
     "check": "biome check --write",
