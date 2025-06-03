@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Badge, Button } from "../../packages/versakit-ui";
-import "../../packages/versakit-ui/dist/main.css";
+import { Badge, Button } from "@versakit/react";
+import "@versakit/react/dist/main.css";
 
 const meta = {
 	title: "Versakit UI/Badge",

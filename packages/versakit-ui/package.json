@@ -15,7 +15,7 @@
   "main": "./dist/main.js",
   "style": "./dist/main.css",
   "module": "./dist/main.js",
-  "types": "./dist/main.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/main.d.ts",

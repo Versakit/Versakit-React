@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "../../packages/versakit-ui";
-import "../../packages/versakit-ui/dist/main.css";
+import { Button } from "@versakit/react";
+import "@versakit/react/dist/main.css";
 
 // 更多关于如何配置 stories 的信息: https://storybook.js.org/docs/writing-stories
 const meta = {

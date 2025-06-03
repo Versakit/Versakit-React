@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Chip } from "../../packages/versakit-ui";
-import "../../packages/versakit-ui/dist/main.css";
+import { Chip } from "@versakit/react";
+import "@versakit/react/dist/main.css";
 
 const meta = {
 	title: "Versakit UI/Chip",
