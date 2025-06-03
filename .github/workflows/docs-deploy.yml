@@ -14,11 +14,8 @@ on:
 # 设置 GITHUB_TOKEN 的权限
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
-  # 构建作业
   build-and-deploy:
     name: 构建并部署 Storybook
     runs-on: ubuntu-latest
@@ -26,6 +23,8 @@ jobs:
       # 检出代码
       - name: 检出代码
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       # 设置 pnpm
       - name: 设置 pnpm
@@ -40,38 +39,24 @@ jobs:
           node-version: 24
           cache: "pnpm"
 
-      # 安装根目录依赖
-      - name: 安装根目录依赖
-        run: pnpm install
+      # 安装依赖并构建
+      - name: 安装依赖并构建
+        run: |
+          pnpm install
+          pnpm install -w
+          cd docs && pnpm install
+          cd .. && pnpm ui:build
+          cd docs && pnpm run build
 
-      # 安装子包目录依赖
-      - name: 安装子包目录依赖
-        run: pnpm install -w
-
-      # 安装 docs 目录依赖
-      - name: 安装 docs 目录依赖
-        run: cd docs && pnpm install
-
-      # 构建 UI 库
-      - name: 构建 UI 库
-        run: pnpm ui:build
-
-      # 构建 Storybook
-      - name: 构建 Storybook
-        run: cd docs && NODE_ENV=production GITHUB_REPOSITORY=${{ github.repository }} pnpm run build
-
-      # 部署到 gh-pages 分支
-      - name: 部署到 gh-pages 分支
+      # 部署到 GitHub Pages
+      - name: 部署到 GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
           folder: docs/storybook-static
+          branch: gh-pages
           clean: true
-          target-folder: storybook
-          commit-message: "docs: 更新 Storybook 文档 [skip ci]"
 
       # 显示部署 URL
       - name: 显示部署 URL
         run: |
-          echo "Storybook 文档已部署到: https://$(echo ${{ github.repository_owner }}).github.io/$(echo ${{ github.event.repository.name }})/storybook/"
+          echo "文档已部署到 https://versakit.github.io/Versakit-React/storybook/"
