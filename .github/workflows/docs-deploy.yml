@@ -73,11 +73,12 @@ jobs:
       # 部署到线上服务器
       - name: 部署到线上服务器
         uses: easingthemes/ssh-deploy@main
-        env:
+        with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i"
-          SOURCE: "docs/storybook-static/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT || '22' }}
+          SOURCE: "docs/storybook-static/"
           TARGET: ${{ secrets.REMOTE_TARGET }}
+          ARGS: "-rlgoDzvc -i"
           EXCLUDE: "/dist/, /node_modules/"
