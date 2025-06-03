@@ -70,15 +70,22 @@ jobs:
           target-folder: storybook
           commit-message: "docs: 更新 Storybook 文档 [skip ci]"
 
-      # 部署到线上服务器
-      - name: 部署到线上服务器
-        uses: easingthemes/ssh-deploy@main
+      # 配置 GitHub Pages
+      - name: 配置 GitHub Pages
+        uses: actions/configure-pages@v4
+
+      # 上传 GitHub Pages 构建制品
+      - name: 上传 Pages 制品
+        uses: actions/upload-pages-artifact@v3
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          REMOTE_PORT: ${{ secrets.REMOTE_PORT || '22' }}
-          SOURCE: "docs/storybook-static/"
-          TARGET: ${{ secrets.REMOTE_TARGET }}
-          ARGS: "-rlgoDzvc -i"
-          EXCLUDE: "/dist/, /node_modules/"
+          path: docs/storybook-static
+
+      # 部署到 GitHub Pages
+      - name: 部署到 GitHub Pages 环境
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      # 输出部署 URL
+      - name: 输出部署 URL
+        run: |
+          echo "文档已部署到 https://$(echo ${{ github.repository_owner }}).github.io/$(echo ${{ github.event.repository.name }})/storybook/"
