@@ -26,6 +26,11 @@ const config: StorybookConfig = {
 	},
 	viteFinal: async (config) => {
 		// 自定义 Vite 配置
+		// 设置 GitHub Pages 的基本路径
+		const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] || "Versakit-react";
+		if (process.env.NODE_ENV === "production") {
+			config.base = `/${repoName}/storybook/`;
+		}
 		return config;
 	},
 };

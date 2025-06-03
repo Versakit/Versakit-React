@@ -58,7 +58,7 @@ jobs:
 
       # 构建 Storybook
       - name: 构建 Storybook
-        run: cd docs && pnpm run build
+        run: cd docs && NODE_ENV=production GITHUB_REPOSITORY=${{ github.repository }} pnpm run build
 
       # 部署到 gh-pages 分支
       - name: 部署到 gh-pages 分支
