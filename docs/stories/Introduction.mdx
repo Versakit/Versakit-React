@@ -20,26 +20,47 @@ Versakit UI 是一个现代化的 React 组件库，专为桌面应用程序设�
 
 ```bash
 # 使用 npm
-npm install @versakit/ui
+npm install @versakit/react
 
 # 使用 yarn
-yarn add @versakit/ui
+yarn add @versakit/react
 
 # 使用 pnpm
-pnpm add @versakit/ui
+pnpm add @versakit/react
 ```
 
 ## 使用
 
 ```tsx
 import React from "react";
-import { Button } from "@versakit/ui";
-import "@versakit/ui/dist/style.css";
+import { Button, Card, Chip, Badge } from "@versakit/react";
+import "@versakit/react/dist/main.css";
 
 function App() {
   return (
     <div>
-      <Button>点击我</Button>
+      <Card>
+        <Card.Header>
+          <Card.Title>示例卡片</Card.Title>
+          <Card.Description>这是一个包含多个组件的示例</Card.Description>
+        </Card.Header>
+        <Card.Content>
+          <div className="flex gap-2 mb-4">
+            <Chip>标签1</Chip>
+            <Chip variant="primary">标签2</Chip>
+            <Chip variant="success" closable>
+              可关闭标签
+            </Chip>
+          </div>
+          <Button>
+            消息 <Badge content="5" variant="error" position="top-right" />
+          </Button>
+        </Card.Content>
+        <Card.Footer>
+          <Button variant="primary">确认</Button>
+          <Button variant="outline">取消</Button>
+        </Card.Footer>
+      </Card>
     </div>
   );
 }
@@ -50,6 +71,9 @@ function App() {
 在左侧导航栏中浏览所有可用的 Versakit UI 组件。目前提供以下组件：
 
 - Button - 按钮
+- Card - 卡片
+- Chip - 标签
+- Badge - 徽章
 - (更多组件正在开发中...)
 
 ## 贡献
