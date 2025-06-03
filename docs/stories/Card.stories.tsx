@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button, Card } from "@versakit/react";
-import "@versakit/versakit-ui/dist/main.css";
+import "@versakit/react/dist/main.css";
 
 const meta = {
 	title: "Versakit UI/Card",
