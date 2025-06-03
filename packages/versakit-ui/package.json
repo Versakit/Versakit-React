@@ -12,15 +12,15 @@
     "ui",
     "components"
   ],
-  "main": "./dist/main.js",
+  "main": "./dist/main.mjs",
   "style": "./dist/main.css",
-  "module": "./dist/main.js",
+  "module": "./dist/main.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/main.js",
-      "require": "./dist/main.js"
+      "import": "./dist/main.mjs",
+      "require": "./dist/main.mjs"
     },
     "./styles.css": "./dist/main.css"
   },
