@@ -43,6 +43,10 @@ jobs:
       - name: 安装根目录依赖
         run: pnpm install
 
+      # 安装 docs 目录依赖
+      - name: 安装 docs 目录依赖
+        run: cd docs && pnpm install
+
       # 构建 UI 库
       - name: 构建 UI 库
         run: pnpm ui:build
