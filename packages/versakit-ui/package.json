@@ -21,7 +21,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/main.mjs",
       "require": "./dist/main.mjs"
-    }
+    },
+    "./dist/main.css": "./dist/main.css"
   },
   "files": [
     "dist"
