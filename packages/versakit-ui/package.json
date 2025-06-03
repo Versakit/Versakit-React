@@ -16,10 +16,20 @@
   "style": "./dist/main.css",
   "module": "./dist/main.js",
   "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js",
+      "require": "./dist/main.js"
+    },
+    "./styles.css": "./dist/main.css"
+  },
   "files": [
     "dist"
   ],
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "engines": {
     "node": ">=18"
   },
