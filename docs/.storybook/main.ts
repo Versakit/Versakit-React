@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
 	stories: [
@@ -16,7 +17,11 @@ const config: StorybookConfig = {
 	],
 	framework: {
 		name: "@storybook/react-vite",
-		options: {},
+		options: {
+			builder: {
+				viteConfigPath: "./vite.config.ts",
+			},
+		},
 	},
 	docs: {
 		autodocs: true,
@@ -31,6 +36,7 @@ const config: StorybookConfig = {
 		if (process.env.NODE_ENV === "production") {
 			config.base = `/${repoName}/storybook/`;
 		}
+
 		return config;
 	},
 };
