@@ -12,6 +12,7 @@
 			"**/dist/**",
 			"**/.git/**",
 			"**/coverage/**",
+			"**/storybook-static/**",
 			"**/*.json",
 			"**/tsconfig*.json"
 		]
